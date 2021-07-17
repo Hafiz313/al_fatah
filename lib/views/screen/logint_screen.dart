@@ -464,29 +464,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       width: double.infinity,
                       child:roundRectangleBtn(txt: kLogIn,textColor: kPrimaryTextColor,bgColor: kAppPrimaryColor,onPressed: () async {
-
-                        //
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => SearchListDemo(
-                        //         )));
-
                         if(signInForm.currentState.validate() && selectLocationCode.isNotEmpty && selectYearCode.isNotEmpty){
 
 
                           pr.show();
-                          // bool isLogin = await Repository.getLogin(
-                          //     "${_userNameController.value.text.toString()}",
-                          //     "${_passwordController.value.text.toString()}",
-                          //     "$selectLocationCode",
-                          //     "$selectYearCode");
-                          bool isLogin = await Repository.getLoginAndData(
+                          bool isLogin = await Repository.getLogin(
                               "${_userNameController.value.text.toString()}",
                               "${_passwordController.value.text.toString()}",
                               "$selectLocationCode",
                               "$selectYearCode");
 
+                          // bool isLogin = await Repository.getLoginAndData(
+                          //     "${_userNameController.value.text.toString()}",
+                          //     "${_passwordController.value.text.toString()}",
+                          //     "$selectLocationCode",
+                          //     "$selectYearCode");
 
                           // if(isLogin && Repository.isBrand.value && Repository.isCategory.value && Repository.isSubCategory.value ){
                           if(isLogin){
@@ -496,18 +488,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               PreferenceUtils.setString(kShareLoginFyear,selectYearCode);
                             });
                             pr.hide();
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => ProductScreen(
                                     )));
 
-                            //
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => SearchListDemo(
-                            //         )));
                             Get.snackbar(
                               "Login alert",
                               "Successfully login",
@@ -577,7 +563,6 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     //  }
   }
-
 
 
 }

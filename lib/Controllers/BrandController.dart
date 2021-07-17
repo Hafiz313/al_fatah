@@ -20,10 +20,10 @@ class BrandController extends GetxController {
   void fetchtfinalclasses() async {
 
     try {
-      var body = json.decode(PreferenceUtils.getString(kShareBrandList));
-      print("====brandModelsFromJson=body:$body=======");
-      brandList=  brandModelsFromJson(body);
-   //  brandList= await Repository.getBrandList();
+      // var body = json.decode(PreferenceUtils.getString(kShareBrandList));
+      // print("====brandModelsFromJson=body:$body=======");
+      // brandList=  brandModelsFromJson(body);
+    brandList= await Repository.getBrandList();
       isLoading(true);
       // if (data != null) {
       //   classlist.value = data;

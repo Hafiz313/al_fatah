@@ -17,7 +17,6 @@ class FYearController extends GetxController {
     try {
       fYearList= await Repository.getFyearList();
       isLoading(true);
-      print("===========locationList: ${fYearList}========$isLoading======");
     } finally {
       isLoading(false);
     }

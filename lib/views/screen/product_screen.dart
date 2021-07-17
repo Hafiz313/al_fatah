@@ -85,8 +85,8 @@ class _ProductScreenState extends State<ProductScreen> {
 
 
   List<BrandModels> searchBrandResult =[];
-  List <CategoryModels>searchCategoryResult =[];
-  List searchSubCategoryResult = new List();
+  List <CategoryModels> searchCategoryResult =[];
+  List searchSubCategoryResult = [];
 
   String _searchBrandText = "";
   String _searchCategoryText = "";

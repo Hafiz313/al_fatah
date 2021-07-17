@@ -47,11 +47,7 @@ class _BaseScaffoldState extends State<BaseScaffold> {
   //   super.initState();
   // }
 
-  @override
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
-  }
+
 
   @override
   Widget build(BuildContext context) {

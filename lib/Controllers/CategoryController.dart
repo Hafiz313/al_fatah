@@ -20,10 +20,10 @@ class CategoryController extends GetxController {
   void fetchtfinalclasses() async {
 
     try {
-      //categoryList= await Repository.getCategoryList();
-      var cateGoryBody = json.decode(PreferenceUtils.getString(kShareCateGoryList));
-      categoryList=  categoryModelsFromJson(cateGoryBody);
-      print("==========cateGoryBody======${categoryList.length}=============");
+      categoryList= await Repository.getCategoryList();
+      // var cateGoryBody = json.decode(PreferenceUtils.getString(kShareCateGoryList));
+      // categoryList=  categoryModelsFromJson(cateGoryBody);
+      // print("==========cateGoryBody======${categoryList.length}=============");
       isLoading(true);
       print("===========categoryList: ${categoryList}========$isLoading======");
       // if (data != null) {

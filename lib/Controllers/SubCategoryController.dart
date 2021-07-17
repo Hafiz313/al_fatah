@@ -21,10 +21,10 @@ class SubCategoryController extends GetxController {
   void fetchtfinalclasses() async {
 
     try {
-     // list= await Repository.getSubcategoryList();
-      var subCateGoryBody = json.decode(PreferenceUtils.getString(kShareCateGoryList));
-      list=  subcategoryModelsFromJson(subCateGoryBody);
-      print("==========subCategoryList======${list.length}=============");
+      list= await Repository.getSubcategoryList();
+     //  var subCateGoryBody = json.decode(PreferenceUtils.getString(kShareSubCategoryList));
+     //  list=  subcategoryModelsFromJson(subCateGoryBody);
+
       isLoading(true);
       // if (data != null) {
       //   classlist.value = data;

@@ -18,10 +18,6 @@ class LocationController extends GetxController {
     try {
       locationList= await Repository.getLocationList();
       isLoading(true);
-      print("===========locationList: ${locationList}========$isLoading======");
-      // if (data != null) {
-      //   classlist.value = data;
-      // }
     } finally {
       isLoading(false);
     }

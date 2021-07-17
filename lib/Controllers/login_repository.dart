@@ -43,7 +43,7 @@ class Repository {
         },
       );
     //  print(response.body);
-      print("===${response.statusCode }====userName:$userName=======password:$password======location:$location====fYear:$fYear====response.body:${response.body}=====");
+      print("==getLogin:=${response.statusCode }====userName:$userName=======password:$password======location:$location====fYear:$fYear====response.body:${response.body}=====");
       if (response.statusCode == 200) {
 
 
@@ -70,37 +70,35 @@ class Repository {
       );
       print("===${response.statusCode }====userName:$userName=======password:$password======location:$location====fYear:$fYear====response.body:${response.body}=====");
       if (response.statusCode == 200) {
-
+        var urlBrand = Uri.parse(baseUrl + "InventoryBrand");
         try{
-          var url = Uri.parse(baseUrl + "InventoryBrand");
-          final response = await http.get(url);
+
+          final response = await http.get(urlBrand);
           if (response.statusCode == 200) {
             PreferenceUtils.setString(kShareBrandList,response.body);
-
-            print("==========getBrandList:${PreferenceUtils.getString(kShareBrandList)}===============");
+       //    print("==========getBrandList:${PreferenceUtils.getString(kShareBrandList)}===============");
           }
         } catch(e){
           print('error $e');
 
         }
+        var urlCateGory = Uri.parse(baseUrl + "InventoryType");
         try{
-          var urlCateGory = Uri.parse(baseUrl + "InventoryType");
           final response = await http.get(urlCateGory);
           if (response.statusCode == 200) {
             PreferenceUtils.setString(kShareCateGoryList,response.body);
-              print("==========getCategoryList:${PreferenceUtils.getString(kShareCateGoryList)}===============");
+         //     print("==========getCategoryList:${PreferenceUtils.getString(kShareCateGoryList)}===============");
           }
         } catch(e){
           print('error $e');
 
         }
-
+        var urlSubCateGory = Uri.parse(baseUrl + "InventoryStyle");
         try{
-          var urlSubCateGory = Uri.parse(baseUrl + "InventoryStyle");
           final response = await http.get(urlSubCateGory);
           if (response.statusCode == 200) {
             PreferenceUtils.setString(kShareSubCategoryList,response.body);
-            print("==========kShareSubCategoryList:${PreferenceUtils.getString(kShareSubCategoryList)}===============");
+         //   print("==========kShareSubCategoryList:${PreferenceUtils.getString(kShareSubCategoryList)}===============");
             isSubCategory(true);
 
 
