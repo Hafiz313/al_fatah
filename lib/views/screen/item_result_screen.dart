@@ -18,6 +18,23 @@ class ItemResultScreen extends StatefulWidget {
 }
 
 class _ItemResultScreenState extends State<ItemResultScreen> {
+  double totalStock=0.0;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    totalStock=0.0;
+
+    if(widget.inventoryResultModel.stock.length>0){
+    for(int i=0; i< widget.inventoryResultModel.stock.length;i++){
+      totalStock+=widget.inventoryResultModel.stock[i].stock;
+      print("========totalStock:$totalStock========");
+    }}
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +73,7 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                         child: Text('SM Rate', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.smRate}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.smRate}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right ,)),
 
                   ]),
                   TableRow(
@@ -66,7 +83,7 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                             child: Text('Wholesale', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.wholeSale}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.wholeSale}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
 
                       ]),
                   TableRow(
@@ -76,7 +93,7 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                             child: Text('Group Fix', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.groupFix}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.groupFix}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
 
                       ]),
                   TableRow(
@@ -86,7 +103,7 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                             child: Text('Company Fix', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.companyFix}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.companyFix}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
 
                       ]),
                   TableRow(
@@ -96,7 +113,7 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                             child: Text('Lock Rate', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.lockRate}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.lockRate}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
 
                       ]),
                   TableRow(
@@ -106,9 +123,10 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                             child: Text('Commission', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.commission}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.commission}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
 
                       ]),
+
 
 
 
@@ -122,6 +140,11 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
               margin: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
 
               child:Table(
+                columnWidths: {
+                  0: FlexColumnWidth(4),
+                  1: FlexColumnWidth(1.5),
+
+                },
 
                 border: TableBorder.all(
                     color: kAppPrimaryColor,
@@ -135,11 +158,43 @@ class _ItemResultScreenState extends State<ItemResultScreen> {
                             child: Text('${widget.inventoryResultModel.stock[index].locationName}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
                         Container(
                             padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                            child: Text('${widget.inventoryResultModel.stock[index].stock}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                            child: Text('${widget.inventoryResultModel.stock[index].stock}', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
                       ]);}
                 ,),
             )
-            ):Container()],
+            ):Container(),
+            Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(left: 20,right: 20,bottom: 20),
+
+                child:Table(
+                  columnWidths: {
+                    0: FlexColumnWidth(4),
+                    1: FlexColumnWidth(1.5),
+
+                  },
+
+                  border: TableBorder.all(
+                      color: kAppPrimaryColor,
+                      style: BorderStyle.solid,
+                      width: 2),
+                  children:[
+                    TableRow(children: [
+                      Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                          child: Text('Total ', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,)),
+                      Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                          child: Text('$totalStock', style: TextStyle(fontSize: 20.0),overflow: TextOverflow.ellipsis,textAlign:TextAlign.right )),
+                    ]),
+                  ]
+
+
+                )
+            )
+
+
+          ],
         ),
       ))
 

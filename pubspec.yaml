@@ -37,8 +37,7 @@ dependencies:
 #  connectivity: ^3.0.6
   get:
   searchable_dropdown:
-  flutter_launcher_icons: "^0.8.0"
-  #dropdown_search: ^0.6.3
+
 
 dev_dependencies:
   flutter_test:

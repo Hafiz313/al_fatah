@@ -186,6 +186,7 @@ class _SearchListExampleState extends State<SearchListExample> {
                   String listData = _list[index] .name;
                   return InkWell(
                     onTap: (){
+
                       Navigator.push(
                           context,
                           MaterialPageRoute(

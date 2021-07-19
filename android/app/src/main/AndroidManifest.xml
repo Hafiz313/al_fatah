@@ -5,8 +5,8 @@
 
    <application
        android:usesCleartextTraffic="true"
-        android:label="inventory_app"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Al-Fateh Elect"
+        android:icon="@drawable/app_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
